@@ -1,4 +1,3 @@
-using UnityEngine.UI;
 using Valve.VR.Extras;
 using Valve.VR.InteractionSystem;
 
@@ -23,11 +22,6 @@ namespace SteamVRTest
 			if (e.target != null)
 			{
 				InputModule.instance.Submit(e.target.gameObject);
-
-				if (e.target.TryGetComponent(out Button button))
-				{
-					button.onClick?.Invoke();
-				}
 			}
 		}
 
