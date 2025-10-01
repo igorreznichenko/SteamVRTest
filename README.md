@@ -15,3 +15,4 @@ Press the buttons on the board to add interactable objects using the controller 
 | Plugin name            | Version      | Notes                                                                                                                |
 |------------------------|--------------|----------------------------------------------------------------------------------------------------------------------|
 | Steam VR               | ver. 2.8.0   | [Link](https://assetstore.unity.com/packages/tools/integration/steamvr-plugin-32647)                                 |
+| Hyper Casual VFX       | ver. 1.0.1   | [Link](https://assetstore.unity.com/packages/vfx/particles/hyper-casual-fx-200333)                                   |
