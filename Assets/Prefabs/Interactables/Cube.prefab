@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 439872874606913245}
   - component: {fileID: 6021569005768609287}
   - component: {fileID: 4066248807286365921}
-  - component: {fileID: 4668580389489319951}
   - component: {fileID: 8300965122768714421}
   - component: {fileID: 3577782812519991274}
   m_Layer: 0
@@ -130,7 +129,7 @@ MonoBehaviour:
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
   handFollowTransform: 1
-  highlightOnHover: 1
+  highlightOnHover: 0
   hideHighlight: []
   hoverPriority: 0
 --- !u!114 &4066248807286365921
@@ -187,22 +186,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
---- !u!114 &4668580389489319951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4418382218661102232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037de2161ddbc6f4e96de7dd85ea6686, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetCollider: {fileID: 0}
-  spawnObjectOnCollision: {fileID: 1000012514662164, guid: ada35c93b68ad004d9b4e7bd686cf189, type: 3}
-  colorSpawnedObject: 1
-  destroyOnTargetCollision: 1
 --- !u!114 &8300965122768714421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac11550fd15d6242acfb83a6aef40f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 737349479877370604}
   _objectType: 0
 --- !u!1 &7663965260573038416
 GameObject:
