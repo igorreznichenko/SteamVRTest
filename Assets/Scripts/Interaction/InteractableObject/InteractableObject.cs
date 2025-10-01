@@ -4,8 +4,11 @@ using UnityEngine.Events;
 
 namespace SteamVRTest.Interaction
 {
-	public class InteractableObject: MonoBehaviour, IPoolable
+	public class InteractableObject : MonoBehaviour, IPoolable
 	{
+		[SerializeField]
+		private Rigidbody _rigidbody;
+
 		[SerializeField]
 		private InteractableObjectType _objectType;
 
@@ -15,6 +18,7 @@ namespace SteamVRTest.Interaction
 
 		public void ReturnToPool()
 		{
+			_rigidbody.angularVelocity = Vector3.zero;
 			gameObject.SetActive(false);
 			ReturnToPoolEvent?.Invoke(this);
 		}
