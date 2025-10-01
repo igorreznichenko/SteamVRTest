@@ -2,7 +2,7 @@ using SteamVRTest.Interaction;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
-namespace SteamVRTest
+namespace SteamVRTest.UI
 {
 	public class BoardPanel : MonoBehaviour
 	{
@@ -41,6 +41,11 @@ namespace SteamVRTest
 			_addCubeButton.onHandClick.RemoveListener(OnAddCubeButtonClickEventHandler);
 			_addSphereButton.onHandClick.RemoveListener(OnAddSphereButtonClickEventHandler);
 			_removeAllButton.onHandClick.RemoveListener(OnRemoveAllButtonClickEventHandler);
+		}
+
+		public void Initialize(InteractableManager interactableManager)
+		{
+			_interactableManager = interactableManager;
 		}
 
 		private void OnAddCubeButtonClickEventHandler(Hand arg0)

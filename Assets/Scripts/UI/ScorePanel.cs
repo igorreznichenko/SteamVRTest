@@ -1,44 +1,40 @@
 using TMPro;
 using UnityEngine;
 
-namespace SteamVRTest
+namespace SteamVRTest.UI
 {
 	public class ScorePanel : MonoBehaviour
 	{
 		[SerializeField]
-		private ScoreManager _scoreManager;
-
-		[SerializeField]
 		private TMP_Text _score;
 
-		private void Start()
-		{
-			_score.text = _scoreManager.Score.ToString();
-		}
+		private ScoreManager _scoreManager;
 
-		private void OnEnable()
+		public void Initialize(ScoreManager scoreManager)
 		{
-			SubscribeEvents();
-		}
+			UnsubscribeCurrentScoreManager();
 
-		private void OnDisable()
-		{
-			UnsubscribeEvents();
-		}
-
-		private void SubscribeEvents()
-		{
+			_scoreManager = scoreManager;
+			_score.text = scoreManager.Score.ToString();
 			_scoreManager.ScoreChangedEvent += OnScoreChangedEventHandler;
 		}
 
-		private void UnsubscribeEvents()
+		private void UnsubscribeCurrentScoreManager()
 		{
-			_scoreManager.ScoreChangedEvent -= OnScoreChangedEventHandler;
+			if (_scoreManager != null)
+			{
+				_scoreManager.ScoreChangedEvent -= OnScoreChangedEventHandler;
+			}
 		}
 
 		private void OnScoreChangedEventHandler(int score)
 		{
 			_score.text = score.ToString();
+		}
+
+		private void OnDestroy()
+		{
+			UnsubscribeCurrentScoreManager();
 		}
 	}
 }

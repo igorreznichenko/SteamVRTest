@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d9a6a17716b6b48a9ed25fe9485785, type: 3}
+  m_Name: FootSteps
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: 66f823bcd5375e148ba5ab12d3740a49, type: 3}
+  _volume: 0.6

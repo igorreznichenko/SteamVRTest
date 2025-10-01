@@ -471,6 +471,56 @@ Transform:
   - {fileID: 1822044435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &245247885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245247886}
+  - component: {fileID: 245247887}
+  m_Layer: 0
+  m_Name: MainSceneEntryPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &245247886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245247885}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1647442297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245247887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245247885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d15c126a19dcf94a81b4230f8e6419c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreManager: {fileID: 1739174991}
+  _interactableManager: {fileID: 949027375}
+  _scorePanel: {fileID: 3169872864999806332}
+  _boardPanel: {fileID: 6207180846262284244}
+  _audioManager: {fileID: 1822044436}
+  _grabSound: {fileID: 11400000, guid: ccfadb4b669774243895bce7277299ed, type: 2}
 --- !u!1 &249351706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1099,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerEnterEvent:
     m_PersistentCalls:
+      m_Calls: []
+  _triggerExitEvent:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1739174991}
         m_TargetAssemblyTypeName: SteamVRTest.ScoreManager, Assembly-CSharp
@@ -1062,9 +1115,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _triggerExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &501428738 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ec3cc7d7dd115b444bbe21308cdb9c0e, type: 3}
@@ -1231,6 +1281,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813540688}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &833322231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 153878, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+  m_PrefabInstance: {fileID: 878247247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &878247247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1274,13 +1329,59 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 153878, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 878247252}
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
 --- !u!4 &878247248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
   m_PrefabInstance: {fileID: 878247247}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &878247252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833322231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a9b39235339104889bf8e9178fc630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  booleanAction:
+    actionPath: /actions/default/in/Teleport
+    needsReinit: 0
+  inputSource: 0
+  onChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  onPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1822044436}
+        m_TargetAssemblyTypeName: SteamVRTest.Audio.AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 34dd197401635f546a406cef2d47436c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: SteamVRTest.Audio.Sound, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPressDown:
+    m_PersistentCalls:
+      m_Calls: []
+  onPressUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &917900588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3085822670673643553, guid: b9eb4331a61415641becfcd794262e62, type: 3}
@@ -1883,6 +1984,38 @@ Transform:
   - {fileID: 256042666}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1647442296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647442297}
+  m_Layer: 0
+  m_Name: =====Entry=====
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1647442297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647442296}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 245247886}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1739174990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6091581375596090340, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
@@ -1904,6 +2037,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4179594265383872435, guid: 0d204d9f3d75787419eeaea5d7d6461b, type: 3}
   m_PrefabInstance: {fileID: 5180611413042650794}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1822044436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7669193916086075439, guid: 0d204d9f3d75787419eeaea5d7d6461b, type: 3}
+  m_PrefabInstance: {fileID: 5180611413042650794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e591c40ce855fd46afc455d7314bec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2049068509 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5814946612361710850, guid: f7bb78ebcd22ef341a6b7c43196b0853, type: 3}
@@ -1992,6 +2136,38 @@ PrefabInstance:
     - target: {fileID: 6091581375596090340, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177618126086490738, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
+      propertyPath: _pointsRewardedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177618126086490738, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
+      propertyPath: _pointsRewardedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177618126086490738, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
+      propertyPath: _pointsRewardedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1822044436}
+    - target: {fileID: 7177618126086490738, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
+      propertyPath: _pointsRewardedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177618126086490738, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
+      propertyPath: _pointsRewardedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177618126086490738, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
+      propertyPath: _pointsRewardedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SteamVRTest.Audio.AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177618126086490738, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
+      propertyPath: _pointsRewardedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 67291a64fe11ddc40956ff6338a7dbbd, type: 2}
+    - target: {fileID: 7177618126086490738, guid: 352f6849ec417454cacf71e29771c2cd, type: 3}
+      propertyPath: _pointsRewardedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SteamVRTest.Audio.Sound, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2156,6 +2332,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7bb78ebcd22ef341a6b7c43196b0853, type: 3}
+--- !u!114 &3169872864999806332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7539925466161770845, guid: f7bb78ebcd22ef341a6b7c43196b0853, type: 3}
+  m_PrefabInstance: {fileID: 3169872864999806331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37ad5d664b21fc4a8ae2d39fe7d3994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4774189406069483279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2369,6 +2556,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1181232574152141805, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181232574152141805, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181232574152141805, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1822044436}
+    - target: {fileID: 1181232574152141805, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181232574152141805, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181232574152141805, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SteamVRTest.Audio.AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181232574152141805, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ea3846413486d040a03cb17423e89a0, type: 2}
+    - target: {fileID: 1181232574152141805, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SteamVRTest.Audio.Sound, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1554105948166546679, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2384,6 +2603,38 @@ PrefabInstance:
     - target: {fileID: 1554105948166546679, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146149437081040829, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146149437081040829, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146149437081040829, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1822044436}
+    - target: {fileID: 4146149437081040829, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146149437081040829, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146149437081040829, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SteamVRTest.Audio.AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4146149437081040829, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ea3846413486d040a03cb17423e89a0, type: 2}
+    - target: {fileID: 4146149437081040829, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SteamVRTest.Audio.Sound, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4359426262391470247, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2421,6 +2672,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: BoardPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 7271277783348516873, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271277783348516873, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271277783348516873, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1822044436}
+    - target: {fileID: 7271277783348516873, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271277783348516873, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271277783348516873, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SteamVRTest.Audio.AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271277783348516873, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ea3846413486d040a03cb17423e89a0, type: 2}
+    - target: {fileID: 7271277783348516873, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SteamVRTest.Audio.Sound, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8385079644185813656, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
       propertyPath: _interactableManager
       value: 
@@ -2430,6 +2713,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+--- !u!114 &6207180846262284244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8385079644185813656, guid: e4eafe6b1fcbeed418e043cc2a601a66, type: 3}
+  m_PrefabInstance: {fileID: 6207180846262284243}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21bad34ece14ac40b12e74ead0abb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7969807525310733477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2491,6 +2785,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1647442297}
   - {fileID: 1599463960}
   - {fileID: 1092441029}
   - {fileID: 97318089}

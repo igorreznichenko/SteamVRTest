@@ -10,7 +10,7 @@ namespace SteamVRTest
 		public int Score
 		{
 			get => _score;
-			set
+			private	set
 			{
 				if (_score != value)
 				{
@@ -20,16 +20,42 @@ namespace SteamVRTest
 			}
 		}
 
-		public event UnityAction<int> ScoreChangedEvent = default;
+		#region Events
+		[SerializeField]
+		private UnityEvent<int> _scoreChangedEvent;
+
+		public event UnityAction<int> ScoreChangedEvent
+		{
+			add => _scoreChangedEvent.AddListener(value);
+			remove => _scoreChangedEvent.RemoveListener(value);
+		}
+
+		[SerializeField]
+		private UnityEvent<int> _pointsRewardedEvent;
+
+		public event UnityAction<int> PointsRewardedEvent
+		{
+			add => _pointsRewardedEvent.AddListener(value);
+			remove => _pointsRewardedEvent.RemoveListener(value);
+		}
 
 		private void OnScoreChanged(int value)
 		{
-			ScoreChangedEvent?.Invoke(value);
+			_scoreChangedEvent?.Invoke(value);
 		}
+		#endregion
+
+		private const int MIN_SCORE_VALUE = 0;
 
 		public void AddScore(int score)
 		{
 			Score += score;
+			_pointsRewardedEvent?.Invoke(score);
+		}
+
+		public void ResetScore()
+		{
+			Score = MIN_SCORE_VALUE;
 		}
 	}
 }
